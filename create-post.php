@@ -9,31 +9,27 @@ include 'db.php';
 
         <div class="col-sm-8 blog-main">
             <?php
-                if(isset($_POST['submit'])) {
+                if(isset($_POST['submit']))
+                {
                     $body = $_POST['body'];
                     $title = $_POST['title'];
                     $currentDate = date("Y-m-d h:i");
                     $autor = $_POST['autor'];
-                if(empty($body) || 
-                empty($title) || 
-                empty($autor)
-                ) {
-                    echo("Nesto nije popunjeno");
-                    
-                } else {
-                    $sql =  "INSERT INTO posts (title,body,autor,create_at) VALUES ('$title','$body','$autor','$currentDate')";
-                    $statement = $connection->prepare($sql);
-                    $statement->execute();
-
+                        if(empty($body) || 
+                            empty($title) || 
+                            empty($autor)
+                            )
+                            {
+                                echo("Nesto nije popunjeno");
+                            } 
+                            else {
+                                $sql =  "INSERT INTO posts (title,body,autor,create_at) VALUES ('$title','$body','$autor','$currentDate')";
+                                $statement = $connection->prepare($sql);
+                                $statement->execute();
                     header("Location: ./index.php");
-
                 }
-        }
-    ?>
-
-
+            }
             ?>
-
             <div class="blog-post">
                 <div class="container">
                     <div class="row">
@@ -56,8 +52,8 @@ include 'db.php';
                         </div>
                     </div>
                 </div>
-
             </div>
+
             <?php
                 // } else {
                 //     echo('id nije prosledjen kroz $_GET');

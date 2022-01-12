@@ -12,7 +12,7 @@ include 'db.php';
             
             <?php
                 
-                $sql = "SELECT id, title, body, autor, create_at FROM posts ORDER BY create_at DESC LIMIT 3";
+                $sql = "SELECT id, title, body, autor, create_at FROM posts ORDER BY create_at DESC LIMIT 5";
                 $statement = $connection->prepare($sql);
                 $statement->execute();
                 // // zelimo da se rezultat vrati kao asocijativni niz.
